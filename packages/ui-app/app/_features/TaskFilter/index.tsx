@@ -50,13 +50,15 @@ export default function TaskFilter({
     console.error(`${assigneeIds} is undefined, use ALL for default`)
   }
 
-  const updatedAssigneeIds = assigneeIds ? assigneeIds.map(uid => {
-    if (uid === 'ME' && user?.id) {
-      return user.id
-    }
+  const updatedAssigneeIds = assigneeIds
+    ? assigneeIds.map(uid => {
+        if (uid === 'ME' && user?.id) {
+          return user.id
+        }
 
-    return uid
-  }) : ['ALL']
+        return uid
+      })
+    : ['ALL']
 
   const isDateRange = date === 'date-range'
   const isCalendarMode = currentViewType === ProjectViewType.CALENDAR
@@ -132,6 +134,8 @@ export default function TaskFilter({
                   { id: 'prev-week', title: '📆 Previous week' },
                   { id: 'this-month', title: '📆 This month' },
                   { id: 'prev-month', title: '📆 Previous month' },
+                  { id: 'this-year', title: '📆 This year' },
+                  { id: 'prev-year', title: '📆 Previous year' },
                   { id: 'not-set', title: '📆 Not set' },
                   { id: 'date-range', title: '📆 Date range' }
                 ]}
