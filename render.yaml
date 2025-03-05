@@ -12,15 +12,15 @@ services:
   - key: MONGODB_URL
     sync: false
   - key: JWT_VERIFY_USER_LINK_TOKEN_EXPIRED
-    sync: false
+    value: 1h
   - key: JWT_TOKEN_EXPIRED
-    sync: false
+    value: 30m
   - key: JWT_SECRET_KEY
-    sync: false
+    generateValue: true
   - key: JWT_REFRESH_KEY
-    sync: false
+    generateValue: true
   - key: JWT_REFRESH_EXPIRED
-    sync: false
+    value: 4h
   region: singapore
   buildCommand: yarn --frozen-lockfile install; yarn pushdb2; yarn generate2; yarn
     build:be
